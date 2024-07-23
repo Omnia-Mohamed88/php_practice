@@ -1,7 +1,8 @@
 <?php
 require "functions.php";
 require "Database.php";
-require "router.php";
+require "Response.php";
+$router = require "router.php";
 
 $config = require('config.php');
 
@@ -15,6 +16,5 @@ if ($id !== null) {
     $posts = $db->query($query, [':id' => $id])->fetch();
     dd($posts);
 } else {
-    require "router.php";
-
+    $router;
 }
