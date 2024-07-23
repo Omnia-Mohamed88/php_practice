@@ -7,16 +7,15 @@ $config = require('config.php');
 $db = new Database($config['database']);
 
 $heading = "My Note";
-// $id=$_GET['id'];
-$note = $db->query('select * from notes where id = :id', ['id' => $_GET['id']])->fetch();
-// dd($note);
-if (! $note){
-    abort();
-}
 $cuurentuserid = 1;
+
+// $id=$_GET['id'];
+$note = $db->query('select * from notes where id = :id', ['id' => $_GET['id']])->findOrFail();
+// dd($note);
+// if (! $note){
+//     abort();
+// }
 // $forbidden = 403 ;
-if ($note['user_id'] != $cuurentuserid){
-    abort(Response::FORBIDDEN);
-}
+authorize($note['user_id'] === $cuurentuserid);
 
 require "views/note.view.php";
