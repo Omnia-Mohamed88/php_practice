@@ -15,6 +15,10 @@
                 </li>
             <?php endforeach; ?>
         </ul>
+        <p class="mt-6">
+    <a href="http://localhost/laracast-php/demo/notes/create" class="text-blue-500 hover:underline">Create Note</a>
+</p>
+
     </div>
 </main>
 

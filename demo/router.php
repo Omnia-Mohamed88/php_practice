@@ -1,13 +1,6 @@
 <?php 
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-$routes =[
-    '/laracast-php/demo/' => 'controllers/index.php',
-    '/laracast-php/demo/about' => 'controllers/about.php',
-    '/laracast-php/demo/contact' => 'controllers/contact.php',
-    '/laracast-php/demo/notes' => 'controllers/notes.php',
-    '/laracast-php/demo/note' => 'controllers/note.php',
-
-];
+$routes = require('routes.php');
 function routerToController($uri , $routes){
 if (array_key_exists($uri , $routes)){
     require $routes[$uri];
