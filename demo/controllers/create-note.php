@@ -1,16 +1,19 @@
 <?php
+require 'validator.php'; 
+
 $heading = "Create Note";
 $config = require('config.php');
-
 $db = new Database($config['database']);
 if ($_SERVER['REQUEST_METHOD']== "POST" ){
     $errors=[];
-    if (strlen($_POST['body'])===0){
-     $errors['body'] = "a body is required ";
+    $validator = new Validator();
+    if (! $validator -> email('hello_frometax@gmail.com')){
+        dd("That is not a valid email");
     }
-    if (strlen($_POST['body'])>1000){
-        $errors['body'] = "body length should noyr be more than 1000 char";
+    if (! $validator::string($_POST['body'],1,1000)) {
+        $errors['body'] = "A body of no more than 1,000 character is required";
     }
+  
     if (empty($errors)){
         $db->query('INSERT INTO notes (body,user_id) VALUES(:body , :user_id)',[
             'body' => $_POST['body'],
