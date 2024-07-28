@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "Core/functions.php";
 // require "bootstrap.php";
 require "Core/Database.php";

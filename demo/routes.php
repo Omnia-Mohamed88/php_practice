@@ -6,7 +6,9 @@ return[
     '/laracast-php/demo/notes' => 'controllers/notes/index.php',
     '/laracast-php/demo/note' => 'controllers/notes/show.php',
     '/laracast-php/demo/notes/create' => 'controllers/notes/create.php',
-    '/laracast-php/demo/note/edit' => 'controllers/notes/edit.php'
+    '/laracast-php/demo/note/edit' => 'controllers/notes/edit.php',
+    '/laracast-php/demo/register' => 'controllers/registeration/create.php',
+    '/laracast-php/demo/register' => 'controllers/registeration/store.php'
 
 
 ];
