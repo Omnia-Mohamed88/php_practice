@@ -1,5 +1,5 @@
 <?php
-require 'validator.php'; 
+require 'Core/validator.php'; 
 
 $heading = "Create Note";
 $config = require('config.php');

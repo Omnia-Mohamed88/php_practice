@@ -3,19 +3,34 @@
 $config = require('config.php');
 // require ('functions.php');
 
-
 $db = new Database($config['database']);
 
 $heading = "My Note";
 $cuurentuserid = 1;
 
-// $id=$_GET['id'];
-$note = $db->query('select * from notes where id = :id', ['id' => $_GET['id']])->findOrFail();
-// dd($note);
-// if (! $note){
-//     abort();
-// }
-// $forbidden = 403 ;
-authorize($note['user_id'] === $cuurentuserid);
+// Check if the 'id' parameter is set
+if (!isset($_GET['id'])) {
+    die('Error: "id" parameter is missing.');
+}
 
-require "views/notes/show.view.php";
+$id = $_GET['id'];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $note = $db->query('select * from notes where id = :id', ['id' => $id])->findOrFail();
+
+    authorize($note['user_id'] === $cuurentuserid);
+
+    $db->query('delete from notes where id = :id', [
+        'id' => $id
+    ]);
+
+    header('location: /notes');
+    exit();
+} else {
+    $note = $db->query('select * from notes where id = :id', ['id' => $id])->findOrFail();
+
+    authorize($note['user_id'] === $cuurentuserid);
+
+    require "views/notes/show.view.php";
+}
+?>
