@@ -5,7 +5,9 @@ return[
     '/laracast-php/demo/contact' => 'controllers/contact.php',
     '/laracast-php/demo/notes' => 'controllers/notes/index.php',
     '/laracast-php/demo/note' => 'controllers/notes/show.php',
-    '/laracast-php/demo/notes/create' => 'controllers/notes/create.php'
+    '/laracast-php/demo/notes/create' => 'controllers/notes/create.php',
+    '/laracast-php/demo/note/edit' => 'controllers/notes/edit.php'
+
 
 ];
 // $router->get('/','controllers/index.php');

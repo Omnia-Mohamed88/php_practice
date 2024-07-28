@@ -7,6 +7,7 @@
         <!-- Your content goes here -->
         <p><a href="/laracast-php/demo/notes">Go back</a></p>
         <p><?= htmlspecialchars($note['body']); ?></p>
+        <a href="http://localhost/laracast-php/demo/note/edit?id=<?= $note['id'] ?>">Edit</a>
         <form class="mt-6" method="POST" action="">
             <input type="hidden" name="id" value="<?= htmlspecialchars($note['id']) ?>">
             <button class="text-sm text-red-500" type="submit">Delete</button>
