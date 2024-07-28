@@ -7,10 +7,10 @@
         <!-- Your content goes here -->
         <p><a href="/laracast-php/demo/notes">Go back</a></p>
         <p><?= htmlspecialchars($note['body']); ?></p>
-        <form class="mt-6" methode="Post">
-            <input type="hidden" name="id" value="<?= $note['id']?>">
-            <button class="text-sm text-red-500">Delete</button>
-</form>
+        <form class="mt-6" method="POST" action="">
+            <input type="hidden" name="id" value="<?= htmlspecialchars($note['id']) ?>">
+            <button class="text-sm text-red-500" type="submit">Delete</button>
+        </form>
     </div>
 </main>
 

@@ -21,10 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     authorize($note['user_id'] === $cuurentuserid);
 
     $db->query('delete from notes where id = :id', [
-        'id' => $id
+        'id' => $_GET['id']
     ]);
 
-    header('location: /notes');
+    header('location: http://localhost/laracast-php/demo/notes');
     exit();
 } else {
     $note = $db->query('select * from notes where id = :id', ['id' => $id])->findOrFail();

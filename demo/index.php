@@ -1,11 +1,12 @@
 <?php
 require "Core/functions.php";
-// require "Database.php";
+// require "bootstrap.php";
+require "Core/Database.php";
 spl_autoload_register(function ($class) {
     require "Core/{$class}.php";
 });
 require "Core/Response.php";
-$router = require "Core/router.php";
+$router = require "Core/Router.php";
 
 $config = require('config.php');
 

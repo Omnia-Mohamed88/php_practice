@@ -1,5 +1,6 @@
 <?php
 // Connecting to the MySQL database and executing a query
+// namespace Core;
 
 class Database {
     public $connection;
